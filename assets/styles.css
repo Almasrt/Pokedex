@@ -3,18 +3,58 @@ body {
     margin: 0px;
     font-family: tahoma;
     color: #282828;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url("./backgwhite.jpg");
+    background-size: cover;
   }
 
-  .nav-bar {
-    background: linear-gradient(-90deg, #fff025, #d61e1e);
-    height: 60px;
-    margin-bottom: 25px;
-    -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
-  }
+.pokedex {
+  padding: 10px;
+  width:100%;
+  position: absolute;
+  text-align: center;
+  
+}
 
-  .champ-recherche {
-    position: relative; 
-    display: inline-block;
-  }
+.nav-bar {
+  background: linear-gradient(-90deg, #fff025, #d61e1e);
+  height: 60px;
+  margin-bottom: 25px;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+  margin: 0;
+}
+
+.champ-recherche {
+  position: relative; 
+  display: inline-block;
+}
+
+.logo {
+  padding:5px;
+  text-align:center;
+  margin:auto;
+  display:flex;
+  width: auto;
+  height : 75%;
+}
+
+.search {
+  text-align: center;
+}
+
+.footer {
+  background: linear-gradient(-90deg, #fff025, #d61e1e);
+  position:absolute;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+  bottom:0;
+  width:100%;
+  padding-top:10px;
+  padding-bottom:10px;
+  height:20px;
+  text-align: center;
+}
