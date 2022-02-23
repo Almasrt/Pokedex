@@ -5,6 +5,8 @@
         <title>Pokedex</title>
         <link rel="stylesheet" href="./assets/styles.css" />
         <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <div id="app">
@@ -20,10 +22,7 @@
                 </div>
                 
                 <div class="container">
-                    <pokemon-detail :selectedPokemon="pokemonDetails"></pokemon-detail>
-                    <div class="col">
-                        <pokemon-list :filteredPokemon="filteredPokemon"></pokemon-list>
-                    </div>
+                    <pokemon-diplay></pokemon-diplay>
                 </div>
             </div>
             <footer class="footer">The best Pokedex you'll ever find</footer>
@@ -32,9 +31,8 @@
 
         <script src="./main.js"></script>
         
-        <script src="./components/Pokemon.js"></script>
-        <script src="./components/PokemonDetails.js"></script>
-        <script src="./components/PokemonList.js"></script>
+        <script src="./components/PokemonDisplay.js"></script>
+        <script src="./components/PokemonSearch.js"></script>
 
         <script>
             const mountedApp = app.mount('#app')
