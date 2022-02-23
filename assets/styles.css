@@ -10,29 +10,51 @@ body {
   }
 
 .pokedex {
-  padding: 10px;
   width:100%;
   position: absolute;
   text-align: center;
-  
+  padding-bottom: 30px;
+}
+
+.rotate {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg) translateY(0px);
+  }
+  to {
+    transform: rotate(359deg) translateY(5px);
+  }
+}
+
+.container {
+  margin-left: 100px;
 }
 
 li {
-  list-style-type: none;
-  background: linear-gradient(180deg, #ff8471, #ff3b3b);
+  background: linear-gradient(-90deg, #fff025, #d61e1e);
   text-align:center;
+  list-style-type: none;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
   border:4px solid rgb(3, 3, 3);
   box-sizing:border-box;
+  border-radius: 10px;
   float:left;
-  height:500px;
+  height:300px;
   width:310px;
+  padding: 10px;
   transition: transform .2s;
   margin: 20px;
   padding-top: 0%;
 }
 
 li:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.1); 
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -44,11 +66,6 @@ li:hover {
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
   margin: 0;
-}
-
-.champ-recherche {
-  position: relative; 
-  display: inline-block;
 }
 
 .logo {
@@ -66,7 +83,8 @@ li:hover {
 
 .footer {
   background: linear-gradient(-90deg, #fff025, #d61e1e);
-  position:absolute;
+  position:fixed;
+  bottom: 0px;
   -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
@@ -77,73 +95,6 @@ li:hover {
   height:20px;
   text-align: center;
 }
-
-@font-face
-{
-    font-family:"Pokemon";
-    src:url("fonts/pokemon.ttf");   
-}
-
-
-body{
-    text-transform:capitalize;
-    background: linear-gradient(180deg, #d3bcbb, #f1f1f1);
-
-}
-
-.nav-bar {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    background-color: #d40e00;
-    height: 150px;
-    margin-bottom: 100px;
-    -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
-    text-align:center;
-    height:230px;
-    vertical-align:middle;
-    line-height: 1px;
-  }
-
-.nav-bar h1{
-    font-size: 125px;
-    
-    font-family:"Pokemon";
-    font-weight: bolder;
-}
-
-
-
-li {
-    list-style-type: none;
-    background: linear-gradient(180deg, #ff8471, #ff3b3b);
-    text-align:center;
-    border:4px solid rgb(3, 3, 3);
-    box-sizing:border-box;
-    float:left;
-    height:500px;
-    width:310px;
-    transition: transform .2s;
-    margin: 20px;
-    padding-top: 0%;
- }
-
-
-
-li:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  }
-
-
-
-
-
-
-
-
-
-
 
 #moreinfo
     {
@@ -171,10 +122,6 @@ li:hover {
     float:right;
 }
 
-#pikachu{
-    float:right;
-}
-
 
 #pokemonname{
     font-family:"Pokemon";
@@ -182,8 +129,8 @@ li:hover {
 }
 
 #pokeimage{
-    height:300px;
-    width:300px;
+    height:100px;
+    width:100px;
 }
 
 #detailedname{

@@ -14,15 +14,10 @@
               <img class="logo" src="./assets/International_Pokémon_logo.svg.png" alt="logo pokémon">
           </div>
             <div class="pokedex">
-
-                <div class="search">
-                    <h3>Recherchez vos pokémons préférés !</h3>
-                    <input type="search" class="search-area" placeholder="Nom ou ID"/>
-                    <button type="button" class="search-btn">search</button>
-                </div>
-                
+                <pokemon-search></pokemon-search>
                 <div class="container">
-                    <pokemon-diplay></pokemon-diplay>
+                    <loading v-if="isLoading = 0"></loading>
+                    <pokemon-display  @endLoad="updateLoading"></pokemon-display>
                 </div>
             </div>
             <footer class="footer">The best Pokedex you'll ever find</footer>
@@ -31,6 +26,7 @@
 
         <script src="./main.js"></script>
         
+        <script src="./components/Loading.js"></script>
         <script src="./components/PokemonDisplay.js"></script>
         <script src="./components/PokemonSearch.js"></script>
 
