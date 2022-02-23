@@ -1,24 +1,25 @@
-Vue.component('pokemon-list', {
+Vue.component('pokemon-basic', {
     props: {
-        filteredPokemon
-    },
+        name: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        }
+      },
     template: 
     /*html*/
     `
-    <div class="list">
-    <ul>
-        <li v-for="(pokemon, index) in filteredPokemon">
-        <div class="card">
-            <div v-on:click="handleClick" class="card">
-                <h5 class="card__header">{{pokemon.index}}</h5>
-                <img class="card__img" :src="imageUrl">
-                <div class="card__body">
-                    <h6 class="card__title">{{pokemon.name}}</h6>
-                </div>
+    <div class="card">
+        <div v-on:click="handleClick" class="card">
+            <h5 class="card__header">{{pokeIndex}}</h5>
+            <img class="card__img" :src="imageUrl">
+            <div class="card__body">
+                <h6 class="card__title">{{name}}</h6>
+            </div>
         </div>
-    </div>
-        </li>
-    </ul>
     </div>
     `,
     data() {

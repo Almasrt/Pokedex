@@ -8,13 +8,36 @@
     </head>
     <body>
         <div id="app">
-          <div class="nav-bar"></div>
+          <div class="nav-bar">
+              <img class="logo" src="./assets/International_Pokémon_logo.svg.png" alt="logo pokémon">
+          </div>
+            <div class="pokedex">
+
+                <div class="search">
+                    <h3>Recherchez vos pokémons préférés !</h3>
+                    <input type="search" class="search-area" placeholder="Nom ou ID"/>
+                    <button type="button" class="search-btn">search</button>
+                </div>
+                
+                <div class="container">
+                    <pokemon-detail :selectedPokemon="pokemonDetails"></pokemon-detail>
+                    <div class="col">
+                        <pokemon-list :filteredPokemon="filteredPokemon"></pokemon-list>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">The best Pokedex you'll ever find</footer>
         </div>
+               
 
         <script src="./main.js"></script>
+        
+        <script src="./components/Pokemon.js"></script>
+        <script src="./components/PokemonDetails.js"></script>
         <script src="./components/PokemonList.js"></script>
+
         <script>
             const mountedApp = app.mount('#app')
-          </script>
+        </script>
     </body>
 </html>
