@@ -2,12 +2,12 @@ app.component('pokemon-display', {
     template:
     /*html*/
     `
-    <div id="moreinfo" class="moreinfos" v-if="isReady">
-        <img id="myButton" v-on:click="closeinfos()" src="./assets/button.png"> 
+    <div id="moreinfo" v-if="isReady">
+        <img id="moreinfo__myButton" v-on:click="closeinfos()" src="./assets/button.png"> 
        
-        <h2 id="detailedname"> #{{result.id}} {{upperCase(result.name)}}</h2>
-        <img id="detailedimage" v-bind:src="getimage(myindice)">
-        <div id="details">    
+        <h2 id="moreinfo__detailedname"> #{{result.id}} {{upperCase(result.name)}}</h2>
+        <img id="moreinfo__detailedimage" v-bind:src="getimage(myindice)">
+        <div id="moreinfo__details">    
             <p>Ability: {{upperCase(result.abilities[0].ability.name)}}</p>
             <p>Base XP: {{result.base_experience}}</p>
             <p>Type: {{upperCase(result.types[0].type.name)}}</p>
@@ -17,8 +17,8 @@ app.component('pokemon-display', {
     <div id="pokemondisplay">
         <ul> 
             <li id=eachpokemon v-for="pokemon in allpokemons" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
-                <p id="pokemonname">#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
-                <img id="pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
+                <p>#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
+                <img id="pokemondisplay__pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
             </li>
         </ul>
     </div>
@@ -65,11 +65,5 @@ app.component('pokemon-display', {
     mounted () {
         axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=100').then(response => this.allpokemons=(response.data.results)).finally(() => {  
             this.$emit('endLoad')})
-        
-        /*if ((searchId != -1) || (searchName != 'none')) {
-            for poke in allpokemons {
-
-            }
-        }*/
         }
  })
