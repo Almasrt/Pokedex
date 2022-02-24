@@ -16,7 +16,7 @@ app.component('pokemon-display', {
 
     <div id="pokemondisplay">
         <ul> 
-            <li id=eachpokemon v-for="pokemon in allpokemons" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
+            <li class="eachpokemon" v-for="pokemon in allpokemons" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
                 <p>#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
                 <img id="pokemondisplay__pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
             </li>
@@ -62,7 +62,7 @@ app.component('pokemon-display', {
         } 
     },       
     mounted () {
-        axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=100').then(response => this.allpokemons=(response.data.results)).finally(() => {  
+        axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151').then(response => this.allpokemons=(response.data.results)).finally(() => {  
             this.$emit('endLoad')})
         }
  })

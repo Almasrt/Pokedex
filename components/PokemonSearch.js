@@ -15,10 +15,10 @@ app.component('pokemon-search', {
         <h3>Recherchez vos pokémons préférés !</h3>
         <input type="search" class="search-area" v-model="searched" placeholder="Nom ou ID"/>
     </div>
-    <div class="search__result">
-        <div id="pokemondisplay" v-if="searched != null">
+    <div class="search__result" v-if="searched != null">
+        <div id="pokemondisplay">
         <ul> 
-            <li id=eachpokemon v-for="pokemon in resultQuery" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
+            <li class="eachpokemon" v-for="pokemon in resultQuery" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
                 <p>#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
                 <img id="pokemondisplay__pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
             </li>
@@ -57,21 +57,19 @@ app.component('pokemon-search', {
     computed: {
         resultQuery(){
             if(this.searched){
-                if((typeof searched) == "string"){
-                    return this.allpokemons.filter((item)=>{
-                        return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
-                      })
-                }
-                else {
-                    return this.allpokemons.filter((item)=>{
-                        return this.searched.split(' ').every(v => item.name.toLowerCase().includes(v))
-                      })
-                }
-            }
+            return this.allpokemons.filter((item)=>{
+              return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+            })}
+        },
+        resultQuery2(){
+            if(this.searched){
+            return this.allpokemons.filter((item)=>{
+              return this.searched.split(' ').every(v => item.GetIndice(item).includes(v))
+            })}
         }
     },
     mounted () {
-        axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=100').then(response => this.allpokemons=(response.data.results)).finally(() => {  
+        axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151').then(response => this.allpokemons=(response.data.results)).finally(() => {  
             this.$emit('endLoad')})
         }
 })
