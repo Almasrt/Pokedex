@@ -57,7 +57,6 @@ app.component('pokemon-display', {
         return{
             allpokemons:[{}],
             result:[{}],
-            searchedPokemons: [{}],
             isReady:false,
             myindice:0
         } 
