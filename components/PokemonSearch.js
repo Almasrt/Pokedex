@@ -16,6 +16,16 @@ app.component('pokemon-search', {
         <input type="search" class="search-area" v-model="searched" placeholder="Nom ou ID"/>
     </div>
     <div class="search__result" v-if="searched != null">
+        <div id="moreinfo" v-if="isReady">
+            <img id="moreinfo__myButton" v-on:click="closeinfos()" src="./assets/button.png"> 
+            <h2 id="moreinfo__detailedname"> #{{result.id}} {{upperCase(result.name)}}</h2>
+            <img id="moreinfo__detailedimage" v-bind:src="getimage(myindice)">
+            <div id="moreinfo__details">    
+                <p>Ability: {{upperCase(result.abilities[0].ability.name)}}</p>
+                <p>Base XP: {{result.base_experience}}</p>
+                <p>Type: {{upperCase(result.types[0].type.name)}}</p>
+            </div>
+        </div>
         <div id="pokemondisplay">
         <ul> 
             <li class="eachpokemon" v-for="pokemon in resultQuery" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
