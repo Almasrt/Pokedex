@@ -14,10 +14,10 @@
               <img class="logo" src="./assets/International_Pokémon_logo.svg.png" alt="logo pokémon">
           </div>
             <div class="pokedex">
-                <pokemon-search></pokemon-search>
+                <pokemon-search @s="updateDisplay"></pokemon-search>
                 <div class="container">
                     <loading v-if="isLoading = 0"></loading>
-                    <pokemon-display  @endLoad="updateLoading"></pokemon-display>
+                    <pokemon-display  @endLoad="updateLoading" v-if="!dispSearch"></pokemon-display>
                 </div>
             </div>
             <footer class="footer">The best Pokedex of 1st génération Pokémons you'll ever find</footer>

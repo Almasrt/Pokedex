@@ -57,16 +57,11 @@ app.component('pokemon-search', {
     computed: {
         resultQuery(){
             if(this.searched){
-            return this.allpokemons.filter((item)=>{
-              return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+                this.$emit('s')
+                return this.allpokemons.filter((item)=>{
+                    return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
             })}
         },
-        resultQuery2(){
-            if(this.searched){
-            return this.allpokemons.filter((item)=>{
-              return this.searched.split(' ').every(v => item.GetIndice(item).includes(v))
-            })}
-        }
     },
     mounted () {
         axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=151').then(response => this.allpokemons=(response.data.results)).finally(() => {  
