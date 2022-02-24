@@ -5,7 +5,7 @@ app.component('pokemon-search', {
             allpokemons:[{}],
             result:[{}],
             isReady:false,
-            myindice:0
+            myindice:0,
         } 
     },
     template:
@@ -19,6 +19,10 @@ app.component('pokemon-search', {
         <div id="pokemondisplay">
         <ul> 
             <li class="eachpokemon" v-for="pokemon in resultQuery" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
+                <p>#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
+                <img id="pokemondisplay__pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
+            </li>
+            <li class="eachpokemon" v-for="pokemon in resultQuery2" v-on:click="getpokemon(GetIndice(pokemon))" :key="pokemon.url">
                 <p>#{{GetIndice(pokemon)}} {{pokemon.name}} </p>
                 <img id="pokemondisplay__pokeimage" v-bind:src="getimage(GetIndice(pokemon))">
             </li>
@@ -61,6 +65,16 @@ app.component('pokemon-search', {
                 return this.allpokemons.filter((item)=>{
                     return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
             })}
+        },
+        resultQuery2(){
+            if(this.searched){
+                if((typeof searched) !== "string"){
+                    this.$emit('s')
+                        return this.allpokemons.filter((item)=>{
+                            return this.searched.split(' ').every(v => this.GetIndice(item) == v)
+                    })
+                }
+            }
             else {this.$emit('d')}
         },
     },
