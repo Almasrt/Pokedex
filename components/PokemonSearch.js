@@ -12,7 +12,7 @@ app.component('pokemon-search', {
     /*html*/
     `
     <div class="search">
-        <h3>Recherchez vos pokémons préférés !</h3>
+        <h3>Find your favorite Pokémons !</h3>
         <input type="search" class="search-area" v-model="searched" placeholder="Nom ou ID"/>
     </div>
     <div class="search__result" v-if="searched != null">
