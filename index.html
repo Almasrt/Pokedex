@@ -14,7 +14,7 @@
               <img class="logo" src="./assets/International_Pokémon_logo.svg.png" alt="logo pokémon">
           </div>
             <div class="pokedex">
-                <pokemon-search @s="updateDisplay"></pokemon-search>
+                <pokemon-search @s="updateDisplayToSearch" @d="updateDisplayToDefault"></pokemon-search>
                 <div class="container">
                     <loading v-if="isLoading = 0"></loading>
                     <pokemon-display  @endLoad="updateLoading" v-if="!dispSearch"></pokemon-display>

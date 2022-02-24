@@ -61,6 +61,7 @@ app.component('pokemon-search', {
                 return this.allpokemons.filter((item)=>{
                     return this.searched.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
             })}
+            else {this.$emit('d')}
         },
     },
     mounted () {

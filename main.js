@@ -9,8 +9,11 @@ const app = Vue.createApp({
     updateLoading(){
       this.isLoading = 1
     },
-    updateDisplay(){
+    updateDisplayToSearch(){
       this.dispSearch = true
+    },
+    updateDisplayToDefault(){
+      this.dispSearch = false
     }
   }
 })
